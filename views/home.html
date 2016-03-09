@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0" />
+    <title>首页 | 白日梦想家</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/home.css"/>
+</head>
+<body ng-app="homeModule" ng-controller="homeController">
+
+    <header class="">
+
+    </header>
+
+    <nav>
+        <ul class="nav-bar clearfix">
+            <li ng-repeat="item in menuItems" ng-click="menuClick(item.id);"
+                ng-class="{true: 'nav-item active', false: 'nav-item'}[currentMenuId == item.id]">
+                <a href="{{item.link}}">{{item.name}}</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="content">
+        <!--侧边栏 -->
+        <div class="side-bar">
+            <!-- 用户信息 -->
+            <div class="usrinf">
+                <div class="usrinf-photo"></div>
+                <div class="usrinf-desc">
+                    吴克炎
+                </div>
+                <div class="usrinf-desc">
+                    前端开发工程师
+                </div>
+                <ul class="clearfix share-btn-lst">
+                    <li class="share-btn">
+                        <i class="fa fa-weibo"></i>
+                    </li>
+                    <li class="share-btn">
+                        <i class="fa fa-qq"></i>
+                    </li>
+                    <li class="share-btn">
+                        <i class="fa fa-weixin"></i>
+                    </li>
+                </ul>
+            </div>
+            <!-- END OF 用户信息 -->
+
+            <!-- 子导航栏 -->
+            <div class="subnav-bar">
+                <div class="subnav-bar-title subnav-color1">
+                    <i class="fa fa-suitcase"></i>工作
+                </div>
+                <ul>
+                    <li class="subnav-item">工作地点</li>
+                    <li class="subnav-item">工作时间</li>
+                    <li class="subnav-item">工作性质</li>
+                    <li class="subnav-item">工作环境</li>
+                </ul>
+            </div>
+            <div class="subnav-bar">
+                <div class="subnav-bar-title subnav-color2">
+                    <i class="fa fa-book"></i>教育
+                </div>
+                <ul>
+                    <li class="subnav-item">工作地点</li>
+                    <li class="subnav-item">工作时间</li>
+                    <li class="subnav-item">工作性质</li>
+                    <li class="subnav-item">工作环境</li>
+                </ul>
+            </div>
+            <div class="subnav-bar">
+                <div class="subnav-bar-title subnav-color3">
+                    <i class="fa fa-bug"></i>成就
+                </div>
+                <ul>
+                    <li class="subnav-item">工作地点</li>
+                    <li class="subnav-item">工作时间</li>
+                    <li class="subnav-item">工作性质</li>
+                    <li class="subnav-item">工作环境</li>
+                </ul>
+            </div>
+            <!-- END OF 子导航栏 -->
+        </div>
+        <!--END OF 侧边栏 -->
+    </div>
+    <footer>
+        页脚
+    </footer>
+
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="angular-route/angular-route.min.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+</body>
+</html>
