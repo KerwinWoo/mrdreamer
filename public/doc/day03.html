@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目开发第三天</title>
+</head>
+<body>
+    <ul>
+        <li>1. 今天主要是gulp构建工具的安装。gulp可以用来做一些项目的构建工作。包括将要被使用的sass的编译工作
+            最好以管理员身份来安装 sudo npm install gulp
+        </li>
+        <li>2. gulp-sass 安装教程：https://www.npmjs.com/package/gulp-sass/
+            安装gulp-sass之前要先安装node-sass, sudo npm install node-sass</li>
+        <li>3. gulp的核心文件是gulpfile.js.在根目录下面，这个文件就是项目的构建文件。与grunt的gruntfile.js类似</li>
+        <li>4. 将项目构建与服务器启动结合起来
+            需要用到的插件有:
+            var nodemon = require('gulp-nodemon');
+            var livereload = require('gulp-livereload');
+            具体改造可参考gulp.js文件。
+        </li>
+    </ul>
+</body>
+</html>

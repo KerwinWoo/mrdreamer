@@ -11,7 +11,7 @@ html
         nav.nav-bar.clearfix
             ul
                 li(ng-repeat="item in menuItems", ng-click="menuClick(item.id);", ng-class="{true: 'nav-item active', false: 'nav-item'}[currentMenuId == item.id]")
-                    a(href="{{item.link}}"){{item.name}}
+                    a(href="{{item.link}}") {{item.name}}
         div.content
             div.side-bar
                 div.usrinf
@@ -29,7 +29,7 @@ html
                     div.subnav-bar-title.subnav-color1
                         i.fa.fa-suitcase
                     ul
-                        li.subnav-item 工作地点
+                        li.subnav-item(ng-repeat="item in subMenuItems") {{item.name}}
         footer
     script(src="jquery/dist/jquery.min.js")
     script(src="angular/angular.min.js")

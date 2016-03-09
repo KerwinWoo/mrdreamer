@@ -1,0 +1,120 @@
+@import 'base';
+@import 'common';
+$linkHoverColor:#555;
+$linkActiveColor:#555;
+$linkActiveBg:#eee;
+$lightGray:#ddd;
+$darkGray:#666;
+$subNavBarColor1:#F34A4A;
+$subNavBarColor2:#4AD652;
+$subNavBarColor3:#528AE8;
+
+@mixin circle{
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.nav-bar{
+  margin:0 auto;
+  text-align: center;
+}
+.nav-bar{
+  li{
+    display: inline-block;
+  }
+}
+.nav-item{
+  display: inline-block;
+  padding:15px;
+  color:$defaultFontColor;
+  -webkit-transition: background,color .3s;
+  -moz-transition: background,color .3s;
+  -ms-transition: background,color .3s;
+  -o-transition: background,color .3s;
+  transition: background,color .3s;
+}
+.nav-item:hover,.nav-item.active{
+  background: $linkActiveBg;
+  color:$linkHoverColor;
+  border-bottom:2px solid $linkHoverColor;
+}
+.nav-item:hover{
+  cursor:pointer;
+}
+.side-bar{
+  width:150px;
+  padding:50px 5px 0 5px;
+  background:$mainBg1;
+  min-height:500px;
+  font-size:$defaultFontSizeSmall;
+}
+.usrinf{
+  padding-bottom:40px;
+  border-bottom:1px solid #222;
+}
+.usrinf-photo{
+  background: url("../img/photo2.png") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  width:80px;
+  height:80px;
+  margin:0 auto;
+  @include circle;
+}
+.usrinf-desc{
+  text-align:center;
+  color:$lightGray;
+  font-weight:500;
+  margin-top:10px;
+}
+.share-btn-lst{
+  width:84px;
+  margin:0 auto;
+  padding-top:10px;
+}
+.share-btn{
+  background:#fff;
+  width:20px;
+  height:20px;
+  float:left;
+  text-align:center;
+  vertical-align: middle;
+  line-height: 20px;
+  margin-right:10px;
+  @include circle;
+  i{
+    font-size:$defaultFontSize;
+  }
+}
+.share-btn:last-child{
+  margin-right:0;
+}
+.share-btn:hover{
+  cursor:pointer;
+  color:#fff;
+  background:#000;
+}
+.subnav-bar{
+  color:$darkGray;
+  padding:20px 20px 0 20px;
+}
+$iconToTitleWidth:15px;
+.subnav-bar-title{
+  line-height: 20px;
+  i{
+    margin-right:$iconToTitleWidth;
+  }
+}
+.subnav-color1{
+  color:$subNavBarColor1;
+}
+.subnav-color2{
+  color:$subNavBarColor2;
+}
+.subnav-color3{
+  color:$subNavBarColor3;
+}
+.subnav-item{
+  line-height: 20px;
+  padding-left:$iconToTitleWidth+11;
+}

@@ -1,0 +1,141 @@
+body, ul, li, p, h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0; }
+
+ul li {
+  list-style-type: none; }
+
+.clearfix:after {
+  clear: both;
+  content: " ";
+  display: block;
+  height: 0;
+  visibility: hidden; }
+
+* html .clearfix {
+  zoom: 1; }
+
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1; }
+
+/* IE7 */
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+body {
+  font-family: "Microsoft YaHei";
+  font-size: 14px;
+  color: #000; }
+
+a {
+  text-decoration: blink; }
+
+a:visited {
+  color: #000; }
+
+.nav-bar {
+  margin: 0 auto;
+  text-align: center; }
+
+.nav-bar li {
+  display: inline-block; }
+
+.nav-item {
+  display: inline-block;
+  padding: 15px;
+  color: #000;
+  -webkit-transition: background,color .3s;
+  -moz-transition: background,color .3s;
+  -ms-transition: background,color .3s;
+  -o-transition: background,color .3s;
+  transition: background,color .3s; }
+
+.nav-item:hover, .nav-item.active {
+  background: #eee;
+  color: #555;
+  border-bottom: 2px solid #555; }
+
+.nav-item:hover {
+  cursor: pointer; }
+
+.side-bar {
+  width: 150px;
+  padding: 50px 5px 0 5px;
+  background: #000;
+  min-height: 500px;
+  font-size: 12px; }
+
+.usrinf {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #222; }
+
+.usrinf-photo {
+  background: url("../img/photo2.png") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%; }
+
+.usrinf-desc {
+  text-align: center;
+  color: #ddd;
+  font-weight: 500;
+  margin-top: 10px; }
+
+.share-btn-lst {
+  width: 84px;
+  margin: 0 auto;
+  padding-top: 10px; }
+
+.share-btn {
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
+  margin-right: 10px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%; }
+  .share-btn i {
+    font-size: 14px; }
+
+.share-btn:last-child {
+  margin-right: 0; }
+
+.share-btn:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #000; }
+
+.subnav-bar {
+  color: #666;
+  padding: 20px 20px 0 20px; }
+
+.subnav-bar-title {
+  line-height: 20px; }
+  .subnav-bar-title i {
+    margin-right: 15px; }
+
+.subnav-color1 {
+  color: #F34A4A; }
+
+.subnav-color2 {
+  color: #4AD652; }
+
+.subnav-color3 {
+  color: #528AE8; }
+
+.subnav-item {
+  line-height: 20px;
+  padding-left: 26px; }

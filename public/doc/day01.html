@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目环境的搭建</title>
+</head>
+<body>
+    <ul>
+        <li>1. 通过地址http://www.expressjs.com.cn/starter/generator.html来完成项目框架的搭建。这样一个简单的Express工程就搭建完成了。</li>
+        <li>2. 自动生成的项目里面。package.json配置了我们项目的入口文件:bin/www.js。在这个文件里面做了服务器的一些相关配置。包括端口号等</li>
+        <li>3. www.js文件里面第一句<strong>var app = require('../app');</strong>代表要加载app.js文件，所以app.js是整个核心文件。app.js
+        里面做了express的一些相关配置。</li>
+        <li>4. 这些配置完成后在命令行运行<strong>DEBUG=mrdreamer npm start</strong>可以启动项目。之后可以通过localhost:3000访问</li>
+        <li>5. angularjs的安装依赖bower.bower可以先通过npm install bower来安装。之后通过bower install angular来安装angular。
+        安装完成后会多一个文件夹bower_components.这个文件夹也要作为静态资源在app.js里面配置</li>
+        <li>6. 之后再common.js里面注册angular的核心module. <strong>var angularApp = angular.module('app',['IndexModule']);</strong></li>
+        <li>7. 然后创建controller....</li>
+    </ul>
+</body>
+</html>

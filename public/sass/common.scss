@@ -1,0 +1,16 @@
+$defaultFontColor:#000;
+$defaultFontSize:14px;
+$defaultFontSizeSmall:12px;
+$mainBg1:#000;
+$defaultLineHeight:15px;
+body{
+  font-family: "Microsoft YaHei";
+  font-size: $defaultFontSize;
+  color:$defaultFontColor;
+}
+a{
+  text-decoration: blink;
+}
+a:visited{
+  color: $defaultFontColor;
+}
