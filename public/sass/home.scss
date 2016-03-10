@@ -41,12 +41,16 @@ $subNavBarColor3:#528AE8;
 .nav-item:hover{
   cursor:pointer;
 }
+$sideBarWidth:210px;
 .side-bar{
-  width:150px;
+  width:$sideBarWidth;
   padding:50px 5px 0 5px;
   background:$mainBg1;
   min-height:500px;
   font-size:$defaultFontSizeSmall;
+  position:absolute;
+  left:0;
+  top:0;
 }
 .usrinf{
   padding-bottom:40px;
@@ -117,4 +121,17 @@ $iconToTitleWidth:15px;
 .subnav-item{
   line-height: 20px;
   padding-left:$iconToTitleWidth+11;
+}
+.subnav-item.active{
+  color:#fff;
+}
+.subnav-item:hover{
+  cursor:pointer;
+}
+.main{
+  padding-left:$sideBarWidth+10;//10=padding
+  position: relative;
+}
+.content{
+  width:100%;
 }

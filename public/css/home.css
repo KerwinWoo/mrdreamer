@@ -63,11 +63,14 @@ a:visited {
   cursor: pointer; }
 
 .side-bar {
-  width: 150px;
+  width: 210px;
   padding: 50px 5px 0 5px;
   background: #000;
   min-height: 500px;
-  font-size: 12px; }
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 0; }
 
 .usrinf {
   padding-bottom: 40px;
@@ -139,3 +142,16 @@ a:visited {
 .subnav-item {
   line-height: 20px;
   padding-left: 26px; }
+
+.subnav-item.active {
+  color: #fff; }
+
+.subnav-item:hover {
+  cursor: pointer; }
+
+.main {
+  padding-left: 220px;
+  position: relative; }
+
+.content {
+  width: 100%; }

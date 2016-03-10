@@ -10,9 +10,9 @@ html
         header
         nav.nav-bar.clearfix
             ul
-                li(ng-repeat="item in menuItems", ng-click="menuClick(item.id);", ng-class="{true: 'nav-item active', false: 'nav-item'}[currentMenuId == item.id]")
+                li(ng-repeat="item in menuItems", ng-click="menuClick(item.name);", ng-class="{true: 'nav-item active', false: 'nav-item'}[currentMenuName == item.name]")
                     a(href="{{item.link}}") {{item.name}}
-        div.content
+        div.main
             div.side-bar
                 div.usrinf
                     div.usrinf-photo
@@ -28,8 +28,13 @@ html
                 div.subnav-bar
                     div.subnav-bar-title.subnav-color1
                         i.fa.fa-suitcase
+                        span 工作经历
                     ul
-                        li.subnav-item(ng-repeat="item in subMenuItems") {{item.name}}
+                        li(ng-repeat="item in jobs",
+                           ng-class="{true:'subnav-item active', false:'subnav-item'}[currentJobName == item.name]",
+                           ng-click="chooseJob(item.name)") {{item.name}}
+            div.content(ng-view)
+
         footer
     script(src="jquery/dist/jquery.min.js")
     script(src="angular/angular.min.js")
