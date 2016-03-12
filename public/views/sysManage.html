@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统管理</title>
+</head>
+<body>
+    <section ng-app="sysManageModule" ng-controller="sysManageController">
+        <h3>工作管理</h3>
+
+        <form name="jobForm">
+            <div class="row">
+                <label for="compName">公司名称</label>
+                <input type="text" id="compName" ng-model="job.compName"/>
+            </div>
+            <div class="row">
+                <label for="fromDate">工作开始年份</label>
+                <input type="text" id="fromDate" ng-model="job.fromDate"/>
+                <label for="toDate">工作结束年份</label>
+                <input type="text" id="toDate" ng-model="job.toDate"/>
+            </div>
+            <div class="row">
+                <label for="desc">工作描述</label>
+                <textarea name="desc" id="desc" ng-model="job.desc"></textarea>
+            </div>
+            <div class="row">
+                <label for="skills">学到了什么</label>
+                <textarea name="skills" id="skills" ng-model="job.skills"></textarea>
+            </div>
+            <button ng-click="saveJob();">保存</button>
+        </form>
+    </section>
+
+    <script src="angular/angular.min.js"></script>
+    <script src="angular-route/angular-route.min.js"></script>
+
+    <script src="js/controllers/sysManageController.js"></script>
+    <script src="js/services/jobService.js"></script>
+</body>
+</html>

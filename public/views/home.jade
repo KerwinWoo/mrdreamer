@@ -6,7 +6,7 @@ html
         title 首页 | 白日梦想家
         link(href="css/home.css", rel="stylesheet")
         link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", rel="stylesheet")
-    body(ng-app="homeModule", ng-controller="homeController")
+    body(ng-app="app", ng-controller="homeController")
         header
         nav.nav-bar.clearfix
             ul
@@ -33,10 +33,12 @@ html
                         li(ng-repeat="item in jobs",
                            ng-class="{true:'subnav-item active', false:'subnav-item'}[currentJobName == item.name]",
                            ng-click="chooseJob(item.name)") {{item.name}}
-            div.content(ng-view)
+            div.content
 
         footer
     script(src="jquery/dist/jquery.min.js")
     script(src="angular/angular.min.js")
     script(src="angular-route/angular-route.min.js")
     script(src="js/controllers/homeController.js")
+    script(src="js/common.js")
+

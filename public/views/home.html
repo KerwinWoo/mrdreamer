@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0" />
+    <title>首页 | 白日梦想家</title>
+<!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+-->
+    <link rel="stylesheet" href="css/home.css"/>
+</head>
+<body ng-app="app" ng-controller="homeController">
+
+    <header class="">
+
+    </header>
+
+    <nav>
+        <ul class="nav-bar clearfix">
+            <li ng-repeat="item in menuItems" ng-click="menuClick(item.name);"
+                ng-class="{true: 'nav-item active', false: 'nav-item'}[currentMenuName == item.name]">
+                <a href="{{item.link}}">{{item.name}}</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="main" ng-view>
+    </div>
+    <footer>
+        页脚
+    </footer>
+
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="angular-route/angular-route.min.js"></script>
+
+    <script src="js/services/jobService.js"></script>
+    <script src="js/services/commonService.js"></script>
+
+    <script src="js/controllers/homeController.js"></script>
+
+    <script src="js/app.js"></script>
+
+
+
+</body>
+</html>

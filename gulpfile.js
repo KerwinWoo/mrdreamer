@@ -15,7 +15,7 @@ gulp.task('sass:watch', function () {
 
 gulp.task('serve', function (cb) {
     nodemon({
-        script  : './bin/www'
+        script  : './config/server'
     }).on('start', function () {
         setTimeout(function () {
             livereload.changed();

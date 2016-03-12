@@ -45,14 +45,12 @@ a:visited {
   display: inline-block; }
 
 .nav-item {
-  display: inline-block;
-  padding: 15px;
   color: #000;
-  -webkit-transition: background,color .3s;
-  -moz-transition: background,color .3s;
-  -ms-transition: background,color .3s;
-  -o-transition: background,color .3s;
-  transition: background,color .3s; }
+  -webkit-transition: background, color 0.6s;
+  -moz-transition: background, color 0.6s;
+  -ms-transition: background, color 0.6s;
+  -o-transition: background, color 0.6s;
+  transition: background, color 0.6s; }
 
 .nav-item:hover, .nav-item.active {
   background: #eee;
@@ -62,15 +60,19 @@ a:visited {
 .nav-item:hover {
   cursor: pointer; }
 
+.nav-item a {
+  display: inline-block;
+  padding: 15px; }
+
 .side-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 210px;
   padding: 50px 5px 0 5px;
   background: #000;
   min-height: 500px;
-  font-size: 12px;
-  position: absolute;
-  left: 0;
-  top: 0; }
+  font-size: 12px; }
 
 .usrinf {
   padding-bottom: 40px;

@@ -8,6 +8,7 @@ $darkGray:#666;
 $subNavBarColor1:#F34A4A;
 $subNavBarColor2:#4AD652;
 $subNavBarColor3:#528AE8;
+$transitionTime:.6s;
 
 @mixin circle{
   -webkit-border-radius: 50%;
@@ -24,14 +25,12 @@ $subNavBarColor3:#528AE8;
   }
 }
 .nav-item{
-  display: inline-block;
-  padding:15px;
   color:$defaultFontColor;
-  -webkit-transition: background,color .3s;
-  -moz-transition: background,color .3s;
-  -ms-transition: background,color .3s;
-  -o-transition: background,color .3s;
-  transition: background,color .3s;
+  -webkit-transition: background,color $transitionTime;
+  -moz-transition: background,color $transitionTime;
+  -ms-transition: background,color $transitionTime;
+  -o-transition: background,color $transitionTime;
+  transition: background,color $transitionTime;
 }
 .nav-item:hover,.nav-item.active{
   background: $linkActiveBg;
@@ -41,16 +40,20 @@ $subNavBarColor3:#528AE8;
 .nav-item:hover{
   cursor:pointer;
 }
+.nav-item a{
+  display: inline-block;
+  padding:15px;
+}
 $sideBarWidth:210px;
 .side-bar{
+  position:absolute;
+  left:0;
+  top:0;
   width:$sideBarWidth;
   padding:50px 5px 0 5px;
   background:$mainBg1;
   min-height:500px;
   font-size:$defaultFontSizeSmall;
-  position:absolute;
-  left:0;
-  top:0;
 }
 .usrinf{
   padding-bottom:40px;

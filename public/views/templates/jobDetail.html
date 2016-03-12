@@ -1,0 +1,44 @@
+<!--侧边栏 -->
+<div class="side-bar">
+    <!-- 用户信息 -->
+    <div class="usrinf">
+        <div class="usrinf-photo"></div>
+        <div class="usrinf-desc">
+            吴克炎
+        </div>
+        <div class="usrinf-desc">
+            前端开发工程师
+        </div>
+        <ul class="clearfix share-btn-lst">
+            <li class="share-btn">
+                <i class="fa fa-weibo"></i>
+            </li>
+            <li class="share-btn">
+                <i class="fa fa-qq"></i>
+            </li>
+            <li class="share-btn">
+                <i class="fa fa-weixin"></i>
+            </li>
+        </ul>
+    </div>
+    <!-- END OF 用户信息 -->
+
+    <!-- 子导航栏 -->
+    <div class="subnav-bar">
+        <div class="subnav-bar-title subnav-color1">
+            <i class="fa fa-suitcase"></i>工作
+        </div>
+        <ul>
+            <li ng-repeat="item in jobs" ng-class="{true:'subnav-item active', false:'subnav-item'}[currentJobName == item.name]"
+                ng-click="chooseJob(item.name)">
+                {{item.name}}
+            </li>
+        </ul>
+    </div>
+    <!-- END OF 子导航栏 -->
+</div>
+<!--END OF 侧边栏 -->
+
+<!--主内容区-->
+<div class="content"></div>
+<!--END OF 主内容区-->

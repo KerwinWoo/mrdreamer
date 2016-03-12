@@ -1,15 +1,15 @@
 /**
- * Created by kerwin on 16/3/5.
+ * Created by kerwin on 16/3/10.
  */
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 //var ObjectId = Schema.Types.ObjectId;
 
-var MenuSchema = new Schema({
-    name: String,//菜单名
-    level: Number,//菜单等级
-    link: String,//菜单链接
-    order: Number,//菜单排名
+var JobSchema = new Schema({
+    name: String,//公司名称
+    fromDate: Date,//入司时间
+    toDate: Date,//离职时间
     meta: {
         createAt: {
             type: Date,
@@ -22,7 +22,7 @@ var MenuSchema = new Schema({
     }
 });
 
-MenuSchema.pre('save', function(next){
+JobSchema.pre('save', function(next){
     if(this.isNew){
         this.meta.createAt = this.meta.updateAt = Date.now();
     }
@@ -31,4 +31,6 @@ MenuSchema.pre('save', function(next){
     }
 });
 
-module.exports = MenuSchema;
+var Job = mongoose.model('Job', JobSchema);
+
+module.exports = Job;
