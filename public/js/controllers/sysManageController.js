@@ -9,8 +9,7 @@ sysManageModule.controller('sysManageController',['$scope', '$http', 'jobService
             fromDate: '2',
             toDate: '3',
             desc: '4',
-            skills: '5',
-            dk: '4'
+            skills: '5'
         };
     $scope.saveJob = function(){
         jobService.saveJob($scope.job);
