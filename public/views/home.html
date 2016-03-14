@@ -11,23 +11,22 @@
 </head>
 <body ng-app="app" ng-controller="homeController">
 
-    <header class="">
-
+    <header class="header">
+        <div class="logo">Mr.Dreamer</div>
+        <nav class="clearfix">
+            <ul class="nav-bar">
+                <li ng-repeat="item in menuItems" ng-click="menuClick(item.name);" class="nav-item">
+                    <a href="{{item.link}}" ng-class="{true: 'active', false: ''}[currentMenuName == item.name]">{{item.name}}</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <ul class="nav-bar clearfix">
-            <li ng-repeat="item in menuItems" ng-click="menuClick(item.name);"
-                ng-class="{true: 'nav-item active', false: 'nav-item'}[currentMenuName == item.name]">
-                <a href="{{item.link}}">{{item.name}}</a>
-            </li>
-        </ul>
-    </nav>
     <div class="main" ng-view>
     </div>
-    <footer>
+ <!--   <footer>
         页脚
-    </footer>
+    </footer>-->
 
     <script src="jquery/dist/jquery.min.js"></script>
     <script src="angular/angular.min.js"></script>

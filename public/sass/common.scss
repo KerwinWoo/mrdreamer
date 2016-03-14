@@ -1,4 +1,4 @@
-$defaultFontColor:#000;
+$defaultFontColor:#2a2b2f;
 $defaultFontSize:14px;
 $defaultFontSizeSmall:12px;
 $mainBg1:#000;
@@ -10,7 +10,4 @@ body{
 }
 a{
   text-decoration: blink;
-}
-a:visited{
-  color: $defaultFontColor;
 }

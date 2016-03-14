@@ -29,40 +29,56 @@ ul li {
 body {
   font-family: "Microsoft YaHei";
   font-size: 14px;
-  color: #000; }
+  color: #2a2b2f; }
 
 a {
   text-decoration: blink; }
 
-a:visited {
-  color: #000; }
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  width: 100%; }
+
+.logo {
+  width: 100px;
+  height: 80px;
+  float: left;
+  line-height: 80px;
+  padding-left: 40px;
+  letter-spacing: 8px;
+  float: left;
+  font-size: 1.2em; }
+
+.header nav {
+  float: right; }
 
 .nav-bar {
-  margin: 0 auto;
-  text-align: center; }
+  text-align: center;
+  padding-right: 40px; }
 
 .nav-bar li {
   display: inline-block; }
 
-.nav-item {
-  color: #000;
+.nav-item > a {
+  color: #2a2b2f;
+  display: inline-block;
+  font-weight: 700;
+  font-size: .875rem;
+  height: 80px;
+  line-height: 80px;
+  padding: 0 20px;
   -webkit-transition: background, color 0.6s;
   -moz-transition: background, color 0.6s;
   -ms-transition: background, color 0.6s;
   -o-transition: background, color 0.6s;
   transition: background, color 0.6s; }
 
-.nav-item:hover, .nav-item.active {
-  background: #eee;
-  color: #555;
-  border-bottom: 2px solid #555; }
-
-.nav-item:hover {
+.nav-item > a:hover, .nav-item > .active {
+  color: #e55a54;
+  border-bottom: 2px solid #e55a54;
   cursor: pointer; }
-
-.nav-item a {
-  display: inline-block;
-  padding: 15px; }
 
 .side-bar {
   position: absolute;
@@ -152,8 +168,87 @@ a:visited {
   cursor: pointer; }
 
 .main {
-  padding-left: 220px;
   position: relative; }
 
 .content {
   width: 100%; }
+
+.wrapper {
+  width: 100%;
+  height: 320px;
+  padding-top: 80px;
+  background-image: url("../img/home-bg.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.wrapper:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: block;
+  background: rgba(255, 255, 255, 0.6); }
+
+.home-intro {
+  position: relative;
+  z-index: 2;
+  margin-top: 80px;
+  padding: 0 40px; }
+
+.intro {
+  padding: 20px 0;
+  width: 60%;
+  line-height: 30px;
+  font-size: 1.4rem; }
+
+.btn-default {
+  background-color: #2a2b2f;
+  border: 2px solid #2a2b2f;
+  color: #fff;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s; }
+
+.btn-mid {
+  font-size: .875rem;
+  padding: 10px 26px;
+  height: 46px;
+  line-height: 44px; }
+
+.col4-1 {
+  width: 25%;
+  float: left;
+  position: relative; }
+
+.blog-wrapper {
+  padding: 30px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  border-color: rgba(181, 184, 185, 0.08);
+  position: absolute; }
+
+.blog-img {
+  width: 100%; }
+
+.blog-tag {
+  padding: 20px 0; }
+
+.blog-tag > span:nth-last-child(1) {
+  color: #9A9C9C; }
+
+.blog-tag > span:nth-of-type(2) {
+  margin: 0 5px; }
+
+.blog-line {
+  margin: 20px 0;
+  width: 10%;
+  height: 1px;
+  border-top: 2px solid #e55a54; }
+
+.blog-desc {
+  color: #9A9C9C;
+  line-height: 25px; }

@@ -7,11 +7,32 @@
 <body>
     <section ng-app="sysManageModule" ng-controller="sysManageController">
         <h3>工作管理</h3>
+        <table>
+            <tr>
+                <th>公司名称</th>
+                <th>工作开始年份</th>
+                <th>工作结束年份</th>
+                <th>工作描述</th>
+                <th>学到了什么</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="item in jobs">
+                <td>{{item.name}}</td>
+                <td>{{item.fromDate | date:'yyyy-MM-dd'}}</td>
+                <td>{{item.toDate | date:'yyyy-MM-dd'}}</td>
+                <td>{{item.desc}}</td>
+                <td>{{item.skills}}</td>
+                <td>
+                    <a href="javascript:void(0);" ng-click="deleteJob(item._id)">删除</a>
+                    <a href="javascript:void(0);" ng-click="updateJob(item._id)">修改</a>
+                </td>
+            </tr>
+        </table>
 
         <form name="jobForm">
             <div class="row">
                 <label for="compName">公司名称</label>
-                <input type="text" id="compName" ng-model="job.compName"/>
+                <input type="text" id="compName" ng-model="job.name"/>
             </div>
             <div class="row">
                 <label for="fromDate">工作开始年份</label>
@@ -27,7 +48,7 @@
                 <label for="skills">学到了什么</label>
                 <textarea name="skills" id="skills" ng-model="job.skills"></textarea>
             </div>
-            <button ng-click="saveJob();">保存</button>
+            <button ng-click="addJob();">保存</button>
         </form>
     </section>
 

@@ -4,6 +4,7 @@ var path = require('path');
 var ejs = require('ejs');
 var indexRouter = require('./route');
 var favicon = require('serve-favicon');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose'), dbUrl = 'mongodb://localhost/mrdreamer';
 
 
@@ -12,7 +13,9 @@ app.set('views', './public/views');
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 
-
+//这个一定要配置，否则post请求获取不到
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 //配置favicon文件
 var publicDirName = './public/';
 app.use(favicon(publicDirName + 'img/favicon.ico'));

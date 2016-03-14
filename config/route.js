@@ -7,6 +7,7 @@ var router = express.Router();
 var ctrlsDirName = '../app/controllers/';
 var commonControler = require(ctrlsDirName + 'CommonCtrl');
 var homePageController = require(ctrlsDirName + 'HomePageCtrl');
+var sysManagePageController = require(ctrlsDirName + 'SysManagePageCtrl');
 /*  ----------------  控制器-----------------*/
 
 router.get('/', function(req, res) {
@@ -25,5 +26,7 @@ router.get('/home',function(req, res){
     res.render('home');
 });
 router.post('/findAllMenus',commonControler.findAllMenus);
-router.post('/findAllJobs', homePageController.findAllJobs);
+router.post('/sys/findAllJobs', homePageController.findAllJobs);
+router.post('/sys/addJob', sysManagePageController.addJob);
+router.post('/sys/deleteJobById', sysManagePageController.deleteJobById)
 module.exports = router;

@@ -10,6 +10,8 @@ var JobSchema = new Schema({
     name: String,//公司名称
     fromDate: Date,//入司时间
     toDate: Date,//离职时间
+    desc: String,//工作描述
+    skills: String,//学习技能
     meta: {
         createAt: {
             type: Date,
@@ -31,6 +33,6 @@ JobSchema.pre('save', function(next){
     }
 });
 
-var Job = mongoose.model('Job', JobSchema);
+var Job = mongoose.model('Job', JobSchema, 'jobs');
 
 module.exports = Job;

@@ -6,13 +6,16 @@ jobServiceModule.service('jobService',['$http',function($http){
 
     return {
         findAllJobs: function(){
-            return $http.post('/findAllJobs');
+            return $http.post('/sys/findAllJobs');
         },
         findJobDetailById: function(jobId){
-            return $http.post('/findJobDetailById');
+            return $http.post('/sys/findJobDetailById');
         },
-        saveJob: function(job){
-            $http.post('/');
+        addJob: function(job){
+            $http.post('/sys/addJob',{job:job});
+        },
+        deleteJobById: function(jobId){
+            return $http.post('/sys/deleteJobById',{id:jobId});
         }
     };
 
