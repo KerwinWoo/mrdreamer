@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kerwin.mrdreamer.dao.BlogMapper">
+  <resultMap id="BaseResultMap" type="com.kerwin.mrdreamer.model.bo.Blog">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="createDate" jdbcType="VARCHAR" property="createdate" />
+    <result column="picUrl" jdbcType="VARCHAR" property="picurl" />
+    <result column="userId" jdbcType="BIGINT" property="userid" />
+    <result column="view" jdbcType="INTEGER" property="view" />
+    <result column="fav" jdbcType="INTEGER" property="fav" />
+    <result column="comments" jdbcType="INTEGER" property="comments" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.kerwin.mrdreamer.model.bo.Blog">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, createDate, picUrl, userId,view,fav
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from md_blog
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByUserId" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from md_blog
+    where userId = #{userId,jdbcType=BIGINT}
+  </select>
+  <select id="selectByFilter" parameterType="com.kerwin.mrdreamer.model.vo.CommonRequestParam"
+  	 resultMap="ResultMapWithBLOBs">
+  	  select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from md_blog
+    where userId = #{userId,jdbcType=BIGINT}
+    <if test="type != null and '' != type">  
+          <![CDATA[  
+            and type = #{type,jdbcType=VARCHAR}  
+          ]]>  
+      </if> 
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from md_blog
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kerwin.mrdreamer.model.bo.Blog">
+    insert into md_blog (title, createDate, 
+      picUrl, userId, content,type
+      )
+    values (#{title,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}, 
+      #{picurl,jdbcType=VARCHAR}, #{userid,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR},
+      #{type,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kerwin.mrdreamer.model.bo.Blog">
+    insert into md_blog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="createdate != null">
+        createDate,
+      </if>
+      <if test="picurl != null">
+        picUrl,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="picurl != null">
+        #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kerwin.mrdreamer.model.bo.Blog">
+    update md_blog
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        createDate = #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="picurl != null">
+        picUrl = #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+       <if test="fav != null and fav != 0">
+        fav = #{fav,jdbcType=INTEGER},
+      </if>
+      <if test="view != null and view != 0">
+        view = #{view,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kerwin.mrdreamer.model.bo.Blog">
+    update md_blog
+    set title = #{title,jdbcType=VARCHAR},
+      createDate = #{createdate,jdbcType=VARCHAR},
+      picUrl = #{picurl,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kerwin.mrdreamer.model.bo.Blog">
+    update md_blog
+    set title = #{title,jdbcType=VARCHAR},
+      createDate = #{createdate,jdbcType=VARCHAR},
+      picUrl = #{picurl,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

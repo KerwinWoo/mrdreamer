@@ -1,0 +1,26 @@
+<div class="messageContainer" ng-init="init();">
+	<ul class="messageGroupList">
+		<li class="messageGroupList-item active" ng-click="isSelectorOpen = !(isSelectorOpen)">
+			<span>讨论组名称 :</span>
+			<span>{{currentMessageGroupName}}</span>
+			<i class="fa fa-caret-right" aria-hidden="true" ng-show="!isSelectorOpen"></i>
+			<i class="fa fa-caret-down" aria-hidden="true" ng-show="isSelectorOpen"></i>
+		</li>
+		<li class="messageGroupList-item" ng-repeat = "item in messageGroupList" ng-show="isSelectorOpen" 
+			ng-click="changeMessageGroup(item.id,item.groupName);">
+			<span>{{item.groupName}}</span>
+			<span>(创建于:{{item.createdTime | date:"yyyy-MM-dd HH:mm:ss"}},创建人:{{item.userName}})</span>
+		</li>
+	</ul>
+	<ul class="messageList">
+		<li class="messageList-item clearfix" ng-repeat="item in messageList">
+			<span class="messageList-item-photo" ng-class="{true:'selfmsg',false:'othermsg'}[item.isSelfMsg]" title="{{item.msgFrom}}"></span>
+			<span class="messageList-item-content" ng-class="{true:'selfmsg',false:'othermsg'}[item.isSelfMsg]">{{item.content}}</span>
+			<span class="messageList-item-time" ng-class="{true:'selfmsg',false:'othermsg'}[item.isSelfMsg]">{{item.sendTime | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+		</li>
+	</ul>
+</div>
+
+<div class="input-container">
+	<textarea placeHolder="输入要发送的信息,按回车键发送" class="messageInput" ng-keyup="checkAndSendMessage($event);" ng-model="input"></textarea>
+</div>

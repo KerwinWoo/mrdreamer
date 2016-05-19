@@ -1,0 +1,16 @@
+<ul class="subnavbar" ng-init="init();">
+	<li class="subnavbar-item" ng-repeat="menu in submenus">
+		<a class="subnavbar-item-link {{menu.activeBgColor}}" ng-class="{true:'active'}[menu.name == type]" ng-click="changeToSubMenu(menu.name);">{{menu.name}}</a>
+	</li>
+</ul>
+<div class="blogsContainer" when-scrolled="loadMore();">
+	<div class="wrapper clearfix">
+		<div class="blog" ng-repeat="blog in blogs">
+			<a href="#/blog/detail/{{blog.id}}"><img class="blog-img default" ng-src={{defaultImgUrl}} alt="图片加载失败" ng-click="toBlogDetailPage(blog.id);"></a>
+			<a href="#/blog/detail/{{blog.id}}"><img class="blog-img danru" ng-src="{{blog.picurl}}" alt="图片加载失败" ng-click="toBlogDetailPage(blog.id);"></a>
+			<h3 class="blog-title">
+				<a href="#/blog/detail/{{blog.id}}" class="blog-title-link" ng-click="toBlogDetailPage(blog.id);" title="{{blog.title}}">{{blog.title}}</a>
+			</h3>
+		</div>
+	</div>
+</div>

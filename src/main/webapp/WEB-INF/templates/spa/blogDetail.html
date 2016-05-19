@@ -1,0 +1,59 @@
+<div class="blogDetailContainer" ng-init="init();">
+	<div class="blogDetail">
+		<h1 class="blogDetail-title">{{blog.title}}</h1>
+		<div class="clearfix">
+			<div class="blogDetail-meta-data"><label for="view">查看</label><span id="view">{{blog.view}}</span></div>
+			<div class="blogDetail-meta-data"><label for="like">喜欢</label><span id="like">{{blog.fav}}</span></div>
+			<div class="blogDetail-meta-data"><label for="comments">评论</label><span id="comments">{{commentsNum}}</span></div>
+		</div>
+		<p id="blogContent" class="blogDetail-content"></p>
+		<div class="sep-line"></div>
+		<textarea id="commentContent" ng-model="commentContent" class="comment-input" ng-class="{false:'comment-input-hid'}[isCommentInputShow]"></textarea>
+		<div class="tc">
+			<div class="commentBtn" ng-hide="isCommentInputShow" ng-click="isCommentInputShow=(!isCommentInputShow)">
+				<i class="fa fa-plus" aria-hidden="true"></i>
+				<span>评论</span>
+				<span class="v-sepline"></span>
+				<span class="">{{commentsNum}}</span>
+			</div>
+			<div class="commentBtn like" ng-hide="isCommentInputShow" ng-click="addCommentLike();" ng-class="{true:'clicked'}[likeBtnClicked]" ng-click="addCommentLike();">
+				<i class="fa fa-heart" aria-hidden="true"></i>
+				<span>喜欢</span>
+				<span class="v-sepline"></span>
+				<span class="">{{blog.fav}}</span>
+			</div>
+			<div class="commentBtn submit" ng-show="isCommentInputShow" ng-click="addComment();">
+				<i class="fa fa-check" aria-hidden="true"></i>
+				<span>提交</span>
+			</div>
+			<div class="commentBtn cancel" ng-show="isCommentInputShow" ng-click="isCommentInputShow=(!isCommentInputShow)">
+				<i class="fa fa-heart" aria-hidden="true"></i>
+				<span>取消</span>
+			</div>
+		</div>
+		<div class="blogDetail-commentsContainer">
+			<ul class="blogDetail-comments">
+				<li class="blogDetail-comments-item clearfix" ng-repeat="item in comments">
+					<span class="userPhoto">{{item.username | firstTwoWordFilter}}</span>
+					<div class="w100p">
+						<div class="blogDetail-comments-item-name">{{item.username}}</div>
+						<div class="font12 font-gray">{{item.createddate}}</div>
+						<div class="blogDetail-comments-item-content">{{item.content}}</div>
+						<div class="font13">
+							<ul class="operlst">
+								<li class="operlst-item">
+									<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+									<span>{{item.fav}}</span>
+								</li>
+								<li class="operlst-item">
+									<i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+									<span>{{item.hate}}</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

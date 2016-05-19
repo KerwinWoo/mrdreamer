@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kerwin.mrdreamer.dao.BlogCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.kerwin.mrdreamer.model.bo.BlogComment" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="blogId" property="blogid" jdbcType="BIGINT" />
+    <result column="createdDate" property="createddate" jdbcType="VARCHAR" />
+    <result column="fav" property="fav" jdbcType="INTEGER" />
+    <result column="hate" property="hate" jdbcType="INTEGER" />
+    <result column="commentId" property="commentid" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.kerwin.mrdreamer.model.bo.BlogComment" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userName, blogId, createdDate, fav, hate, commentId
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from md_blog_comment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByBlogId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from md_blog_comment
+    where blogId = #{blogId,jdbcType=BIGINT}
+    order by createdDate desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from md_blog_comment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kerwin.mrdreamer.model.bo.BlogComment" >
+    insert into md_blog_comment (userName, blogId, 
+      createdDate,commentId, content)
+    values (#{username,jdbcType=VARCHAR}, #{blogid,jdbcType=BIGINT}, 
+      #{createddate,jdbcType=VARCHAR},#{commentid,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kerwin.mrdreamer.model.bo.BlogComment" >
+    insert into md_blog_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        userName,
+      </if>
+      <if test="blogid != null" >
+        blogId,
+      </if>
+      <if test="createddate != null" >
+        createdDate,
+      </if>
+      <if test="fav != null" >
+        fav,
+      </if>
+      <if test="hate != null" >
+        hate,
+      </if>
+      <if test="commentid != null" >
+        commentId,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="blogid != null" >
+        #{blogid,jdbcType=BIGINT},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=VARCHAR},
+      </if>
+      <if test="fav != null" >
+        #{fav,jdbcType=INTEGER},
+      </if>
+      <if test="hate != null" >
+        #{hate,jdbcType=INTEGER},
+      </if>
+      <if test="commentid != null" >
+        #{commentid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kerwin.mrdreamer.model.bo.BlogComment" >
+    update md_blog_comment
+    <set >
+      <if test="username != null" >
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="blogid != null" >
+        blogId = #{blogid,jdbcType=BIGINT},
+      </if>
+      <if test="createddate != null" >
+        createdDate = #{createddate,jdbcType=VARCHAR},
+      </if>
+      <if test="fav != null" >
+        fav = #{fav,jdbcType=INTEGER},
+      </if>
+      <if test="hate != null" >
+        hate = #{hate,jdbcType=INTEGER},
+      </if>
+      <if test="commentid != null" >
+        commentId = #{commentid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kerwin.mrdreamer.model.bo.BlogComment" >
+    update md_blog_comment
+    set userName = #{username,jdbcType=VARCHAR},
+      blogId = #{blogid,jdbcType=BIGINT},
+      createdDate = #{createddate,jdbcType=VARCHAR},
+      fav = #{fav,jdbcType=INTEGER},
+      hate = #{hate,jdbcType=INTEGER},
+      commentId = #{commentid,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kerwin.mrdreamer.model.bo.BlogComment" >
+    update md_blog_comment
+    set userName = #{username,jdbcType=VARCHAR},
+      blogId = #{blogid,jdbcType=BIGINT},
+      createdDate = #{createddate,jdbcType=VARCHAR},
+      fav = #{fav,jdbcType=INTEGER},
+      hate = #{hate,jdbcType=INTEGER},
+      commentId = #{commentid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

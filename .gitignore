@@ -1,0 +1,5 @@
+/target/
+/bin/
+/.settings/
+/node_modules/
+/.project

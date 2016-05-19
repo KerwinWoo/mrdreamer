@@ -1,0 +1,82 @@
+/*------------旋转（无限循环）----------------------*/
+.xuanzhuan{
+    -webkit-animation:xuanzhuan 2s linear infinite;
+    -o-animation:xuanzhuan 2s linear infinite;
+    animation:xuanzhuan 2s linear infinite;
+}
+
+@keyframes xuanzhuan {
+    100%{
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+/*------------淡入--------------*/
+.danru{
+	-webkit-animation:danru .3s linear;
+	-o-animation:danru .3s linear;
+    animation:danru .3s linear;
+}
+@keyframes danru{
+	0%{
+		opacity:0;
+	}
+	100%{
+		opacity:1;
+    }
+}
+/*------------淡入--------------*/
+
+/*------------loading动效--------------*/
+@-webkit-keyframes loading{
+	0%{
+		opacity:0;
+	}
+	100%{
+		width:0;
+		height:0;
+		border-radius:0;
+		opacity:1;
+	}
+}
+/*------------loading动效--------------*/
+
+/*------------标签云动效--------------*/
+@-webkit-keyframes wordcloud{
+	0%{
+		opacity:0.1;
+		transform:translateZ(0);
+	}
+	25%{
+		opacity:0.5;
+		transform:translateZ(40px);
+	}
+	50%{
+		opacity:1;
+		transform:translateZ(80px);
+	}
+	75%{
+		opacity:0.5;
+		transform:translateZ(40px);
+	}
+	100%{
+		opacity:0.1;
+		transform:translateZ(0);
+	}
+}
+/*------------标签云动效--------------*/
+
+/*------------从右向左滑出--------------*/
+.slideFormRight{
+	-webkit-animation:sliderFromRight .6s linear;
+	
+}
+@-webkit-keyframes sliderFromRight{
+	100%{
+		right:0;
+	}
+}
+/*------------从右向左滑出--------------*/

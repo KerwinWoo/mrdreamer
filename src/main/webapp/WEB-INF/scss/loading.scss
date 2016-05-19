@@ -1,0 +1,84 @@
+$R:30px;//大圆半径
+$r:10px;//小圆半径
+$I:sqrt((($R)*($R))/2px);//内切圆所包含正方形的宽度的一半
+$subDelayTime:0.2s;
+$delayTime:$subDelayTime*8;
+.outter{
+	width:2*$R;
+	height:2*$R;
+	position:absolute;
+	left:48%;
+	top:48%;
+	margin:0 auto;
+}
+.inner{
+	width:2*$I;
+	height:2*$I;
+	position:absolute;
+	left:$R - $I;
+	top:$R - $I;
+}
+.ball{
+	width:2*$r;
+	height:2*$r;
+	position:absolute;
+	background:#000;
+	border-radius:$r;
+	opacity:0;
+}
+.ball-1{
+	left:$R - $r;
+	top:-$r;
+	animation:loading $delayTime linear infinite;
+	-webkit-animation:loading $delayTime linear infinite;
+	-moz-animation:loading $delayTime linear infinite;
+}
+.ball-6{
+	left:2*$I - $r;
+	top:-$r;
+	animation:loading $delayTime linear infinite $subDelayTime;
+	-webkit-animation:loading $delayTime linear infinite $subDelayTime;
+	-moz-animation:loading $delayTime linear infinite $subDelayTime;
+}
+.ball-2{
+	left:2*$R - $r;
+	top:$R - $r;
+	animation:loading $delayTime linear infinite 2*$subDelayTime;
+	-webkit-animation:loading $delayTime linear infinite 2*$subDelayTime;
+	-moz-animation:loading $delayTime linear infinite 2*$subDelayTime;
+}
+.ball-7{
+	left:2*$I - $r;
+	top:2*$I - $r;
+	animation:loading $delayTime linear infinite 3*$subDelayTime;
+	-webkit-animation:loading $delayTime linear infinite 3*$subDelayTime;
+	-moz-animation:loading $delayTime linear infinite 3*$subDelayTime;
+}
+.ball-3{
+	left:$R - $r;
+	top:2*$R - $r;
+	animation:loading $delayTime linear infinite 4*$subDelayTime;
+	-webkit-animation:loading $delayTime linear infinite 4*$subDelayTime;
+	-moz-animation:loading $delayTime linear infinite 4*$subDelayTime;
+}
+.ball-8{
+	left:-$r;
+	top:2*$I - $r;
+	animation:loading $delayTime linear infinite 5*$subDelayTime;
+	-webkit-animation:loading $delayTime linear infinite 5*$subDelayTime;
+	-moz-animation:loading $delayTime linear infinite 5*$subDelayTime;
+}
+.ball-4{
+	left:-$r;
+	top:$R - $r;
+	animation:loading $delayTime linear infinite 6*$subDelayTime;
+	-webkit-animation:loading $delayTime linear infinite 6*$subDelayTime;
+	-moz-animation:loading $delayTime linear infinite 6*$subDelayTime;
+}
+.ball-5{
+	left:-$r;
+	top:-$r;
+	animation:loading $delayTime linear infinite 7*$subDelayTime;
+	-webkit-animation:loading $delayTime linear infinite 7*$subDelayTime;
+	-moz-animation:loading $delayTime linear infinite 7*$subDelayTime;
+}

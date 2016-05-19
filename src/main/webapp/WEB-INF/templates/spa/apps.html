@@ -1,0 +1,10 @@
+<div ng-init = "init();" id="container" ng-show="!isStage">
+	<div class="tag" ng-repeat="tag in tags" ng-style="tag.style" ng-click="showApp(tag.id);">
+		<a href="{{tag.link}}" class="tag-link">{{tag.name}}</a>
+	</div>
+</div>
+<!-- 作品展示舞台 -->
+<div id="stage" ng-show="isStage">
+	<div ui-view></div>
+</div>
+<!-- 作品展示舞台 -->
