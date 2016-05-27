@@ -13,7 +13,6 @@ blogOverviewModule.controller('blogOverviewController', function($scope,$rootSco
 		$scope.type = menuName;
 		$scope.loadBlogs();
 	};
-	
 	/**
 	 * @description 分页加载博客信息
 	 * @param start 分页开始行

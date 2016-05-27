@@ -4,6 +4,7 @@ blogDetailModule.controller('blogDetailController', function($scope,$http,$compi
 	$scope.isCommentInputShow = false;
 	$scope.commentContent = '';
 	$scope.commentsNum = 0;
+	$scope.videoPath = basePath + '/media/yulu.flv';
 	$scope.init = function(){
 		$scope.loadBlogDetailInfo();
 		$scope.loadBlogComments();

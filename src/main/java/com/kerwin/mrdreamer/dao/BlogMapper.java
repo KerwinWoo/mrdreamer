@@ -17,7 +17,9 @@ public interface BlogMapper {
     List<Blog> selectByUserId(Long userId); 
     
     List<Blog> selectByFilter(CommonRequestParam param);
-
+    
+    List<Blog> selectAll();
+    
     int updateByPrimaryKeySelective(Blog record);
 
     int updateByPrimaryKeyWithBLOBs(Blog record);

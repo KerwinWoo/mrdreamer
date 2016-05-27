@@ -12,6 +12,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
 <title>白日梦想家</title>
+<meta http-equiv='x-dns-prefetch-control' content='on'>
+<link rel='dns-prefetch' href='http://wukeyan.com'>
 <link rel="stylesheet" href="<%=basePath%>/css/spa.css">
 <link rel="stylesheet" href="<%=basePath%>/css/keyframes.css">
 <link rel="stylesheet" href="<%=basePath%>/css/font-awesome/font-awesome.min.css">

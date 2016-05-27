@@ -12,6 +12,13 @@ appsModule.controller('appsController',function($scope,$rootScope,commonUtilServ
 			name:'Canvas画Echarts风格图表',
 			link:basePath+'/#/apps/canvas'
 		}];
+		for(var i = 0; i < 20; i++){
+			$scope.tags.push({
+				id:'1',
+				name:'小作品' + (i+1),
+				link:basePath+'/#/apps/communicator'
+			});
+		}
 		for(var i = 0; i < $scope.tags.length; i++){
 			var randomDelay = 0;
 			if(i > 5){

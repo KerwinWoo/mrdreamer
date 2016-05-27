@@ -5,6 +5,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="createDate" jdbcType="VARCHAR" property="createdate" />
+    <result column="updatedate" jdbcType="VARCHAR" property="updatedate" />
     <result column="picUrl" jdbcType="VARCHAR" property="picurl" />
     <result column="userId" jdbcType="BIGINT" property="userid" />
     <result column="view" jdbcType="INTEGER" property="view" />
@@ -16,7 +17,7 @@
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, title, createDate, picUrl, userId,view,fav
+    id, title, createDate, picUrl, userId,view,fav,type,updateDate
   </sql>
   <sql id="Blob_Column_List">
     content
@@ -36,6 +37,13 @@
     <include refid="Blob_Column_List" />
     from md_blog
     where userId = #{userId,jdbcType=BIGINT}
+  </select>
+    <select id="selectAll" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from md_blog
   </select>
   <select id="selectByFilter" parameterType="com.kerwin.mrdreamer.model.vo.CommonRequestParam"
   	 resultMap="ResultMapWithBLOBs">
@@ -116,6 +124,9 @@
       <if test="createdate != null">
         createDate = #{createdate,jdbcType=VARCHAR},
       </if>
+      <if test="updatedate != null">
+        updateDate = #{updatedate,jdbcType=VARCHAR},
+      </if>
       <if test="picurl != null">
         picUrl = #{picurl,jdbcType=VARCHAR},
       </if>
@@ -130,6 +141,9 @@
       </if>
       <if test="view != null and view != 0">
         view = #{view,jdbcType=INTEGER},
+      </if>
+       <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}

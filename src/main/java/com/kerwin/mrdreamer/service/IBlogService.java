@@ -8,7 +8,9 @@ import com.kerwin.mrdreamer.model.vo.CommonRequestParam;
 
 public interface IBlogService {
 
-	public List<Blog> getAllBlogs(String userId);
+	public List<Blog> getAllBlogs();
+	
+	public List<Blog> getAllBlogsOfUser(String userId);
 	
 	public Blog getBlogById(String blogId);
 	
@@ -54,4 +56,18 @@ public interface IBlogService {
 	 * @return
 	 */
 	public int updateFavouriteNum(Blog blog);
+	
+	/**
+	 * 更新博客信息
+	 * @param blog
+	 * @return
+	 */
+	public int updateBlogInfo(Blog blog);
+	
+	/**
+	 * 删除博客
+	 * @param blogId
+	 * @return
+	 */
+	public int deleteBlog(String blogId);
 }

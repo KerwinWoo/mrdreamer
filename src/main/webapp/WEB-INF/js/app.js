@@ -9,6 +9,7 @@ app.config(["$httpProvider", function($httpProvider) {
 app.controller('mainController',function($scope,$rootScope){
 	$rootScope.activeMenuId = '1';
 	$rootScope.isModalShow = false;
+	$rootScope.basePath = basePath;
 	$scope.menus = [{
 		id:'1',
 		name: '博客',

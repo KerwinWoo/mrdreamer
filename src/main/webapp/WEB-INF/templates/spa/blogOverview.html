@@ -7,7 +7,7 @@
 	<div class="wrapper clearfix">
 		<div class="blog" ng-repeat="blog in blogs">
 			<a href="#/blog/detail/{{blog.id}}"><img class="blog-img default" ng-src={{defaultImgUrl}} alt="图片加载失败" ng-click="toBlogDetailPage(blog.id);"></a>
-			<a href="#/blog/detail/{{blog.id}}"><img class="blog-img danru" ng-src="{{blog.picurl}}" alt="图片加载失败" ng-click="toBlogDetailPage(blog.id);"></a>
+			<a href="#/blog/detail/{{blog.id}}"><img class="blog-img danru" ng-src="{{basePath+'/img/'+blog.picurl}}" alt="图片加载失败" ng-click="toBlogDetailPage(blog.id);"></a>
 			<h3 class="blog-title">
 				<a href="#/blog/detail/{{blog.id}}" class="blog-title-link" ng-click="toBlogDetailPage(blog.id);" title="{{blog.title}}">{{blog.title}}</a>
 			</h3>

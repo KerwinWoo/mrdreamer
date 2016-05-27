@@ -22,7 +22,7 @@ public class BlogServiceImpl implements IBlogService{
 	private BlogCommentMapper blogCommentMapper;
 
 	@Override
-	public List<Blog> getAllBlogs(String userId) {
+	public List<Blog> getAllBlogsOfUser(String userId) {
 		return blogMapper.selectByUserId(Long.parseLong(userId));
 	}
 
@@ -59,5 +59,20 @@ public class BlogServiceImpl implements IBlogService{
 	@Override
 	public int updateFavouriteNum(Blog blog) {
 		return blogMapper.updateByPrimaryKeySelective(blog);
+	}
+
+	@Override
+	public int updateBlogInfo(Blog blog) {
+		return blogMapper.updateByPrimaryKeySelective(blog);
+	}
+
+	@Override
+	public List<Blog> getAllBlogs() {
+		return blogMapper.selectAll();
+	}
+
+	@Override
+	public int deleteBlog(String blogId) {
+		return blogMapper.deleteByPrimaryKey(Long.parseLong(blogId));
 	}
 }

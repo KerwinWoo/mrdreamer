@@ -17,6 +17,7 @@ public class Blog {
     private int fav;
     private int comments;
     private String type;
+    private String updatedate;
 
     public Long getId() {
         return id;
@@ -96,5 +97,13 @@ public class Blog {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getUpdatedate() {
+		return updatedate;
+	}
+
+	public void setUpdatedate(String updatedate) {
+		this.updatedate = updatedate;
 	}
 }

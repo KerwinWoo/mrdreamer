@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +40,7 @@ public class BlogController {
 	}
 
 	@RequestMapping(value = "/overview/{type}", method = RequestMethod.POST)
-	public @ResponseBody BaseResult getBlogData(@PathVariable("type") String type, @RequestBody CommonRequestParam param){
+	public @ResponseBody BaseResult getBlogData(@PathVariable("type") String type, @RequestBody CommonRequestParam param, HttpServletRequest request, HttpServletResponse response){
 		BaseResult result = new BaseResult();
 		Map<String, Object> data = new HashMap<String, Object>();
 		param.setType(type);
@@ -47,6 +50,7 @@ public class BlogController {
 		result.setReturnCode(ConstantUtil.RESULT_CODE_SUCCESS);
 		result.setReturnMsg("successful");
 		result.setData(data);
+		response.setHeader("Cache-Control", "max-age=3000");
 		return result;
 	}
 	
